@@ -151,10 +151,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="header.h" />
+    <ClInclude Include="hooking.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="header.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="hooking.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
