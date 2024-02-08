@@ -1,18 +1,24 @@
 #pragma once
-#pragma once
+
 #include <Windows.h>
-#include <vector>
 #include <iostream>
+#include <vector>
 using namespace std;
 
-//Resolve pointer chain
-uintptr_t RPC(uintptr_t base, vector<unsigned int> Offsets);
-//Overwrite game code
-DWORD WINAPI Change_game_code(unsigned char* hook_location, unsigned char byte_to_write[]);
-//Start hack
-DWORD WINAPI HackThread(HMODULE hModule);
+//Code cave 
+void noRecoilCode();
+void superHealthCode();
+void infiniteAmmoCode();
 
+//Resolve pointer chain to get address of status value
+uintptr_t RPC(vector<unsigned int> Offsets);
+uintptr_t GetPlayerHealth();
+uintptr_t GetPlayerAmmo();
 
+//Manage console and message
+FILE* SetupConsole();
+void Welcome();
+void CleanConsole(FILE* f);
 
 
 
