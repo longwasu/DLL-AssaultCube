@@ -13,10 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Hooking">
+      <UniqueIdentifier>{fb898962-dcc6-411a-899a-602880d69337}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hooking.h">
+      <Filter>Hooking</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -25,6 +31,9 @@
     </ClCompile>
     <ClCompile Include="header.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hooking.cpp">
+      <Filter>Hooking</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
