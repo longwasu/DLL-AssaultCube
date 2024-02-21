@@ -1,10 +1,17 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "header.h"
 #include "hooking.h"
+#include "entity.h"
 
 DWORD WINAPI HackThread(HMODULE hModule)
 {
     FILE* f = SetupConsole();
+
+    
+    SetupEntityList();
+
+
+
 
     while (true) {
         if (GetAsyncKeyState(VK_F5) & 1) {
@@ -15,6 +22,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
     }
     
 
+ 
     CleanConsole(f);
     FreeLibraryAndExitThread(hModule, 0);
     return 0;
