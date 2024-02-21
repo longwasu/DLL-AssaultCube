@@ -16,6 +16,9 @@
     <Filter Include="Hooking">
       <UniqueIdentifier>{fb898962-dcc6-411a-899a-602880d69337}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entity list">
+      <UniqueIdentifier>{5a43d37c-cffa-4d8e-a3f8-1ec07efe2610}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -23,6 +26,9 @@
     </ClInclude>
     <ClInclude Include="hooking.h">
       <Filter>Hooking</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Entity list</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +40,9 @@
     </ClCompile>
     <ClCompile Include="hooking.cpp">
       <Filter>Hooking</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>Entity list</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
