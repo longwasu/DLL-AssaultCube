@@ -19,6 +19,12 @@
     <Filter Include="Entity list">
       <UniqueIdentifier>{5a43d37c-cffa-4d8e-a3f8-1ec07efe2610}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Teleport">
+      <UniqueIdentifier>{5adf7f98-ac72-42bb-9d2b-4bdb0407f2cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Aimbot">
+      <UniqueIdentifier>{5b747582-07f8-4a30-8b5e-641db2878480}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -29,6 +35,12 @@
     </ClInclude>
     <ClInclude Include="entity.h">
       <Filter>Entity list</Filter>
+    </ClInclude>
+    <ClInclude Include="teleport.h">
+      <Filter>Teleport</Filter>
+    </ClInclude>
+    <ClInclude Include="aimbot.h">
+      <Filter>Aimbot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +55,12 @@
     </ClCompile>
     <ClCompile Include="entity.cpp">
       <Filter>Entity list</Filter>
+    </ClCompile>
+    <ClCompile Include="teleport.cpp">
+      <Filter>Teleport</Filter>
+    </ClCompile>
+    <ClCompile Include="aimbot.cpp">
+      <Filter>Aimbot</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

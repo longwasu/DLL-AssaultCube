@@ -1,5 +1,8 @@
 #pragma once
+#define _USE_MATH_DEFINES
+
 #include <Windows.h>
+#include <math.h>
 #include "header.h"
 
 struct Entity
@@ -20,32 +23,16 @@ struct Entity
 	float xRelative = NULL;
 	float yRelative = NULL;
 	float zRelative = NULL;
-	float distance = 99999.0f;
+	float distance = NULL;
 
 	//just for me
 	float* yaw = nullptr;
 	float* pitch = nullptr;
 
 	void set_value(BYTE* playerBase);
+
+	Entity();
 };
 
-struct Offsets
-{
-	//entity status
-	DWORD dead = 0x76;
-	DWORD xCoord = 0x28;
-	DWORD yCoord = 0x30;
-	DWORD zCoord = 0x2C;
-	DWORD team = 0x30C;
-	DWORD playerNumber = 0x1C4;
-	DWORD health = 0xEC;
-	DWORD name = 0x205;
-
-	//just for me
-	DWORD yaw = 0x38;
-	DWORD pitch = 0x34;
-};
-
-
-void SetupEntityList();
+void SetupEntityList(Entity entity_list[32], int NumberOfPlayer);
 
