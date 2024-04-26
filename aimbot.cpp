@@ -26,21 +26,10 @@ void Aimbot(Entity entity_list[32], int NumberOfPlayer) {
 			*entity_list[0].yaw = newYaw;
 
 			//pitch
-			float newPitch = abs(rad2degree(atan(xGap / yGap)));
-			if (*entity_list[i].xCoord > *entity_list[0].xCoord && *entity_list[i].yCoord < *entity_list[0].yCoord)
-				newPitch = newPitch + 0;
-			else if (*entity_list[i].xCoord > *entity_list[0].xCoord && *entity_list[i].yCoord > *entity_list[0].yCoord) {
-				newPitch = 90 - newPitch;
-				newPitch = newPitch + 90;
-			}
-			else if (*entity_list[i].xCoord < *entity_list[0].xCoord && *entity_list[i].yCoord > *entity_list[0].yCoord)
-				newPitch = newPitch + 180;
-			else {
-				newPitch = 90 - newPitch;
-				newPitch = newPitch + 270;
-			}
-				
+			float newPitch = rad2degree(atan2f(yGap, xGap)) + 90;
+			
 			*entity_list[0].pitch = newPitch;
+			
         }
     }
 }
