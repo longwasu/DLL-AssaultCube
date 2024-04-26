@@ -1,9 +1,8 @@
 #pragma once
-#define _USE_MATH_DEFINES
-
 #include <Windows.h>
 #include <math.h>
 #include "header.h"
+#include "global.h"
 
 struct Entity
 {
@@ -31,8 +30,11 @@ struct Entity
 
 	void set_value(BYTE* playerBase);
 
-	Entity();
+	
 };
 
 void SetupEntityList(Entity entity_list[32], int NumberOfPlayer);
 
+int GetNumberOfPlayer();
+
+float DistanceFromMe(Entity player, Entity enemy);

@@ -9,21 +9,20 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Hooking">
       <UniqueIdentifier>{fb898962-dcc6-411a-899a-602880d69337}</UniqueIdentifier>
     </Filter>
     <Filter Include="Entity list">
       <UniqueIdentifier>{5a43d37c-cffa-4d8e-a3f8-1ec07efe2610}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Teleport">
-      <UniqueIdentifier>{5adf7f98-ac72-42bb-9d2b-4bdb0407f2cf}</UniqueIdentifier>
+    <Filter Include="Global">
+      <UniqueIdentifier>{36d15680-8c2d-496e-8770-624be1ed4967}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Aimbot">
-      <UniqueIdentifier>{5b747582-07f8-4a30-8b5e-641db2878480}</UniqueIdentifier>
+    <Filter Include="Draw">
+      <UniqueIdentifier>{a249e9c9-c529-495a-bc52-ac387de3daf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Esp">
+      <UniqueIdentifier>{8af9f99a-7bc8-41aa-b64f-8b80e49bee9a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,11 +35,14 @@
     <ClInclude Include="entity.h">
       <Filter>Entity list</Filter>
     </ClInclude>
-    <ClInclude Include="teleport.h">
-      <Filter>Teleport</Filter>
+    <ClInclude Include="global.h">
+      <Filter>Global</Filter>
     </ClInclude>
-    <ClInclude Include="aimbot.h">
-      <Filter>Aimbot</Filter>
+    <ClInclude Include="draw.h">
+      <Filter>Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="esp.h">
+      <Filter>Esp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,11 +58,14 @@
     <ClCompile Include="entity.cpp">
       <Filter>Entity list</Filter>
     </ClCompile>
-    <ClCompile Include="teleport.cpp">
-      <Filter>Teleport</Filter>
+    <ClCompile Include="global.cpp">
+      <Filter>Global</Filter>
     </ClCompile>
-    <ClCompile Include="aimbot.cpp">
-      <Filter>Aimbot</Filter>
+    <ClCompile Include="draw.cpp">
+      <Filter>Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="esp.cpp">
+      <Filter>Esp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

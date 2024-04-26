@@ -1,35 +1,35 @@
 #include "hooking.h"
 
-Hooking::Hooking(BYTE* Hook, int NumberOfByte, BYTE* desiredFunction)
+void Hooking::Setup(BYTE* hookLocation, BYTE* dstFunc, int len)
 {
-	this->Hook = Hook;
-	this->NumberOfByte = NumberOfByte;
-	memcpy(StolenBytes, Hook, NumberOfByte);	//save original byte
-	this->desiredFunction = desiredFunction;
-	//set up bytes in code cave
-
+	this->hookLocation = hookLocation;
+	this->len = len;
+	this->dstFunc = dstFunc;
 }
 
-void Hooking::Inject()
-{
-	DWORD oldProtect;
-	VirtualProtect((VOID*)Hook, 5, PAGE_EXECUTE_READWRITE, &oldProtect);
+void Hooking::Inject() {
+	VirtualProtect(hookLocation, len, PAGE_EXECUTE_READWRITE, &oldProtect);
+
+	//Backup stolen bytes
+	memcpy(stolenBytes, hookLocation, len);
 
 	//Write to hook location
-	*Hook = 0xE9;
-	*(uintptr_t*)(Hook + 1) = (uintptr_t)desiredFunction - ((uintptr_t)Hook + 5);
+	*hookLocation = 0xE9;
+	*(DWORD*)(hookLocation + 1) = (DWORD)(dstFunc - hookLocation - 5);
 
 	//Fill remain byte with Nop
-	for (int i = 5; i < NumberOfByte; i++)
-	{
-		*(BYTE*)(Hook + i) = (BYTE)0x90;
+	for (int i = 5; i < len; i++) {
+		*(hookLocation + i) = (BYTE)0x90;
 	}
 }
 
 void Hooking::Unject()
 {
 	//Restore hook bytes
-	memcpy(Hook, StolenBytes, NumberOfByte);
+	memcpy(hookLocation, stolenBytes, len);
+
+	DWORD oldProtect = this -> oldProtect;
+	VirtualProtect(hookLocation, len, oldProtect, &oldProtect);
 }
 
 

@@ -1,9 +1,5 @@
 #include "entity.h"
 
-Entity::Entity() {
-
-}
-
 void Entity::set_value(BYTE* playerBase)
 {
 	this->playerBase = playerBase;
@@ -17,8 +13,8 @@ void Entity::set_value(BYTE* playerBase)
 	this->name = (char*)(playerBase + 0x205);
 
 	//just for me
-	this->yaw = (float*)(playerBase + 0x38);
-	this->pitch = (float*)(playerBase + 0x34);
+	this->yaw = (float*)(playerBase + 0x34);
+	this->pitch = (float*)(playerBase + 0x38);
 }
 
 
@@ -33,6 +29,17 @@ void SetupEntityList(Entity entity_list[32], int NumberOfPlayer) {
 			entity_list[i].set_value(entity_addr);
 		}
 	}
+}
+
+int GetNumberOfPlayer() {
+	HMODULE base = GetModuleHandle(L"ac_client.exe");
+	int NumberOfPlayer = *(int*)((int)base + 0x18AC0C);
+	return NumberOfPlayer;
+}
+
+float DistanceFromMe(Entity player, Entity enemy) {
+	float distance = (float)sqrt(pow(*player.xCoord - *enemy.xCoord, 2) + pow(*player.yCoord - *enemy.yCoord, 2));
+	return distance;
 }
 	
 

@@ -1,32 +1,28 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "header.h"
 #include "entity.h"
-#include "aimbot.h"
+#include "global.h"
+
+extern Hooking ESP;
 
 DWORD WINAPI HackThread(HMODULE hModule)
 {
-    FILE* f = SetupConsole();
+    SetupConsole();
+    SetupGlobal();
 
-    Entity entity_list[32];
-    int NumberOfPlayer = RPC({ 0x18AC0C, 0x0 });
-    SetupEntityList(entity_list, NumberOfPlayer);
-
-    while (true) {
+    while (true) {   
         if (GetAsyncKeyState(VK_F1) & 1) {
-            cout << "Active aimbot!" << endl;
-            
+            ESP.Toggle("ESP");
         }
-        Aimbot(entity_list, NumberOfPlayer);
         if (GetAsyncKeyState(VK_F5) & 1) {
             cout << "Closing hack..." << endl;
+            UnjectAll();
             Sleep(3000);
             break;
         }
     }
-    
-
  
-    CleanConsole(f);
+    CleanConsole();
     FreeLibraryAndExitThread(hModule, 0);
     return 0;
 }

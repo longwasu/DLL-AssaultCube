@@ -14,17 +14,22 @@ uintptr_t RPC(vector<unsigned int> Offsets) {
 }
 
 //Manage console and message
-FILE* SetupConsole() {
-    AllocConsole();
-    FILE* f;
-    freopen_s(&f, "CONOUT$", "w", stdout);
-    Welcome();
-    return f;
+static FILE* f_console = nullptr;  
+
+void SetupConsole() {
+    AllocConsole();  
+    freopen_s(&f_console, "CONOUT$", "w", stdout);  
+    Welcome();  
 }
-void CleanConsole(FILE *f) {
-    fclose(f);
+
+void CleanConsole() {
+    if (f_console) {
+        fclose(f_console); 
+        f_console = nullptr; 
+    }
     FreeConsole();
 }
+
 void Welcome() {
     cout << "===============AssaultCube hack================" << endl;
     cout << "Press 'F1': turn ON/OFF no recoil" << endl;
@@ -34,6 +39,12 @@ void Welcome() {
     cout << "===============================================" << endl;
 }
 
+extern Hooking ESP;
+void UnjectAll() {
+    if (ESP.active = true) {
+        ESP.Toggle("ESP");
+    } 
+}
 
 
 

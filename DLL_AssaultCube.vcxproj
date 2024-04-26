@@ -151,19 +151,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="aimbot.h" />
+    <ClInclude Include="draw.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="esp.h" />
+    <ClInclude Include="global.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="hooking.h" />
-    <ClInclude Include="teleport.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="aimbot.cpp" />
+    <ClCompile Include="draw.cpp" />
     <ClCompile Include="entity.cpp" />
+    <ClCompile Include="esp.cpp" />
+    <ClCompile Include="global.cpp" />
     <ClCompile Include="header.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="hooking.cpp" />
-    <ClCompile Include="teleport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
