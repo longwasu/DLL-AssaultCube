@@ -4,8 +4,7 @@
 #include <gl/GL.h>
 #include <cmath>
 
-//Screen size 2400x1800
-//Ti le giua khoang cach va do dai/rong cua box la 1:1
+
 
 extern GLubyte red[3];
 extern GLubyte green[3];

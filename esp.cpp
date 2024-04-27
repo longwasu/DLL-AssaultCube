@@ -1,12 +1,15 @@
-//#include "esp.h"
-//
-//void Esp() {
-//	float xCenter = 1200, yCenter = 870, widthDefault = 250, heightDefault = 700;
-//	
-//	for (int i = 1; i < GetNumberOfPlayer(); i++) {
-//		float distanceRatio = entity_list[i].DistanceFromMe() / 10;
-//		DrawBox(xCenter, yCenter, widthDefault/distanceRatio, heightDefault/distanceRatio, red);
-//	}
-//
-//	
-//}
+#include "esp.h"
+
+void DrawEsp() {
+	UpdateEntity();
+	float xDefault = 1200, yDefault = 870, widthDefault = 250, heightDefault = 700;
+	float distanceRatio = entity_list[1].distance / 10;
+	float y = yDefault + (*entity_list[0].pitch * 23);
+
+	float newPitch = atan(entity_list[1].zGap / entity_list[1].yGap);
+	
+	DrawBox(xDefault, y, widthDefault / distanceRatio, heightDefault / distanceRatio, red);
+	
+}
+
+

@@ -1,6 +1,8 @@
 #include "entity.h"
 
-void Entity::set_value(BYTE* playerBase)
+Entity entity_list[32];
+
+void Entity::set(BYTE* playerBase)
 {
 	this->playerBase = playerBase;
 	this->dead = playerBase + 0x76;
@@ -15,18 +17,22 @@ void Entity::set_value(BYTE* playerBase)
 	//just for me
 	this->yaw = (float*)(playerBase + 0x34);
 	this->pitch = (float*)(playerBase + 0x38);
+
+	xGap = *xCoord - *entity_list[0].xCoord;
+	yGap = *yCoord - *entity_list[0].yCoord;
+	zGap = *zCoord - *entity_list[0].zCoord;
+	distance = sqrt(xGap*xGap + yGap*yGap);
 }
 
+void UpdateEntity() {
+	BYTE* EntityPtr = (BYTE*)RPC({ 0x18AC04, 0x0 });
+	BYTE* local_player = (BYTE*)RPC({ 0x17E0A8, 0x0 });
+	entity_list[0].set(local_player);
 
-void SetupEntityList(Entity entity_list[32], int NumberOfPlayer) {
-	uintptr_t EntityPtr = RPC({ 0x18AC04, 0x0 });
-	uintptr_t local_player = RPC({ 0x17E0A8, 0x0 });
-	entity_list[0].set_value((BYTE*)local_player);
-
-	if (NumberOfPlayer > 0) {
-		for (int i = 1; i < NumberOfPlayer; i++) {
-			BYTE* entity_addr = *(BYTE**)(EntityPtr + 4*i);
-			entity_list[i].set_value(entity_addr);
+	if (GetNumberOfPlayer() > 0) {	
+		for (int i = 1; i < GetNumberOfPlayer(); i++) {
+			BYTE* entity_addr = *(BYTE**)(EntityPtr + 4 * i);
+			entity_list[i].set(entity_addr);
 		}
 	}
 }
@@ -37,9 +43,5 @@ int GetNumberOfPlayer() {
 	return NumberOfPlayer;
 }
 
-float DistanceFromMe(Entity player, Entity enemy) {
-	float distance = (float)sqrt(pow(*player.xCoord - *enemy.xCoord, 2) + pow(*player.yCoord - *enemy.yCoord, 2));
-	return distance;
-}
 	
 

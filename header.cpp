@@ -41,7 +41,7 @@ void Welcome() {
 
 extern Hooking ESP;
 void UnjectAll() {
-    if (ESP.active = true) {
+    if (ESP.active == true) {
         ESP.Toggle("ESP");
     } 
 }

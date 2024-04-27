@@ -1,8 +1,7 @@
 #pragma once
 #include <Windows.h>
-#include <math.h>
+#include <cmath>
 #include "header.h"
-#include "global.h"
 
 struct Entity
 {
@@ -19,22 +18,21 @@ struct Entity
 
 	//Use for aimbot/ESP
 	bool check = false;
-	float xRelative = NULL;
-	float yRelative = NULL;
-	float zRelative = NULL;
+	float xGap = NULL;
+	float yGap = NULL;
+	float zGap = NULL;
 	float distance = NULL;
 
 	//just for me
 	float* yaw = nullptr;
 	float* pitch = nullptr;
 
-	void set_value(BYTE* playerBase);
-
-	
+	Entity() { }
+	void set(BYTE* playerBase);
 };
 
-void SetupEntityList(Entity entity_list[32], int NumberOfPlayer);
+void UpdateEntity();
 
 int GetNumberOfPlayer();
 
-float DistanceFromMe(Entity player, Entity enemy);
+extern Entity entity_list[32];
