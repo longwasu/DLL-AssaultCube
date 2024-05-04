@@ -1,6 +1,4 @@
 #pragma once
-#include <Windows.h>
-#include <cmath>
 #include "header.h"
 
 struct Entity
@@ -22,10 +20,6 @@ struct Entity
 	float yGap = NULL;
 	float zGap = NULL;
 	float distance = NULL;
-
-	//just for me
-	float* yaw = nullptr;
-	float* pitch = nullptr;
 
 	Entity() { }
 	void set(BYTE* playerBase);

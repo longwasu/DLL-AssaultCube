@@ -1,7 +1,8 @@
 #pragma once
-#include "entity.h"
 #include "hooking.h"
 #include "esp.h"
+
+extern Hooking ESP;
 
 void EspCodeCave();
 

@@ -32,7 +32,6 @@ void Hooking::Unject()
 	VirtualProtect(hookLocation, len, oldProtect, &oldProtect);
 }
 
-
 void Hooking::Toggle(string name)
 {
 	active = !active;
@@ -44,5 +43,4 @@ void Hooking::Toggle(string name)
 		Unject();
 		cout << name << ": TURN OFF" << endl;
 	}
-		
 }

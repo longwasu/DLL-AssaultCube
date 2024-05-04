@@ -5,7 +5,6 @@ BYTE* wglSwapBuffers;
 DWORD* espRetAddr;
 Hooking ESP;
 
-
 //Set up global variable
 void SetupGlobal() {
 	HMODULE hOpenGL = GetModuleHandleA("opengl32.dll");
@@ -20,7 +19,6 @@ void SetupGlobal() {
 	espRetAddr = (DWORD*)(wglSwapBuffers + 5);
 }
 
-
 //ESP
 __declspec(naked) void EspCodeCave() {
 	__asm {
@@ -29,8 +27,10 @@ __declspec(naked) void EspCodeCave() {
 		mov ebp, esp
 		pushad
 	}
-	
+
+	SetupOrtho();
 	DrawEsp();
+	RestoreGL();
 
 	__asm {
 		popad

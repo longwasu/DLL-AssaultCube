@@ -14,14 +14,10 @@ void Entity::set(BYTE* playerBase)
 	this->health = (int*)(playerBase + 0xEC);
 	this->name = (char*)(playerBase + 0x205);
 
-	//just for me
-	this->yaw = (float*)(playerBase + 0x34);
-	this->pitch = (float*)(playerBase + 0x38);
-
 	xGap = *xCoord - *entity_list[0].xCoord;
 	yGap = *yCoord - *entity_list[0].yCoord;
 	zGap = *zCoord - *entity_list[0].zCoord;
-	distance = sqrt(xGap*xGap + yGap*yGap);
+	distance = sqrt(xGap*xGap + yGap*yGap + zGap*zGap);
 }
 
 void UpdateEntity() {

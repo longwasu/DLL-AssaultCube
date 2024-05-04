@@ -1,8 +1,15 @@
 #pragma once
 #include "entity.h"
 #include "draw.h"
+#include "global.h"
 
-//Screen size 2400x1800
-//Ti le giua khoang cach va do dai/rong cua box la 1:1
+#define M_PI 3.14159265358979323846 
+#define screenWidth viewport[2]
+#define screenHeight viewport[3]
+
+extern int viewport[4];
 
 void DrawEsp();
+
+bool WorldToScreen(vec3& entityCoord, vec2& screenCoord);
+
